@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args){
         engineer();
         System.out.print("\n\n\n\n");
-        logo2();
+        // logo2();
     }
 
     public static void engineer(){        
