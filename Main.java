@@ -19,6 +19,9 @@ public class Main {
 
     }
 
+    /**
+     * Prints SCOPES
+     */
     public static void engineer() {
         // the space between logo and left side of screen
         int marginLeft = 40;
@@ -34,6 +37,8 @@ public class Main {
         int innerMarginX = 3;
         // the radius of the main circle in logo
         int iconRadius = 6;
+        // internal length of the icon container
+        int innerLength = logoLength - (verticalLineStrLength * 2);
 
         // top border
         for (int i = 1; i <= marginLeft; i++)
@@ -70,7 +75,8 @@ public class Main {
              */
             // the x^2 coordinate
             int xSqaured = (iconRadius * iconRadius) - ((y - 8) * (y - 8));
-            double spaceX = xSqaured / 2; // Initial guess
+            /** initial guess */
+            double spaceX = xSqaured / 2;
             double epsilon = 0.000001; // Precision threshold
 
             if (xSqaured >= 0) {
@@ -79,28 +85,28 @@ public class Main {
                     spaceX = (spaceX + xSqaured / spaceX) / 2;
                 }
             }
-            spaceX -= 8;
-
+            spaceX -= 7;
             spaceX = -spaceX;
             // END OF SQUARE ROOT
 
-            for (int i = 1; i <= spaceX; i++)
+            // the ammount of horizontal space between edges of circle (dx)
+
+            double innerSpace = innerLength - (spaceX * 2) - 9;
+
+            for (double i = 0; i < spaceX; i++)
                 System.out.print(" ");
 
             // print the border of left side of the circle
             System.out.print("@@");
 
-            int innerLength = logoLength - (verticalLineStrLength * 2);
-
-            // System.out.print(spaceX);
-            // spaceX = -spaceX;
-            // spaceX -= 8;
-            double innerSpace = innerLength - (spaceX * 2);
             for (int i = 1; i <= innerSpace; i++)
                 System.out.print(" ");
 
             System.out.print("@@");
 
+            double rightSpace = spaceX;
+            for (int i = 1; i <= rightSpace; i++)
+                System.out.print(" ");
             System.out.println(verticalLine);
         }
         System.out.print("done");
