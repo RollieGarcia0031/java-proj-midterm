@@ -31,10 +31,20 @@ public class Scopes {
         for (int repeat = 1; repeat <= 2; repeat++) {
             for (int i = 1; i <= marginLeft; i++)
                 System.out.print(" ");
-            System.out.print(verticalLine);
+
+            if (repeat % 2 == 0)
+                System.out.print("0");
+            else
+                System.out.print("1");
+
             for (int i = 1; i <= logoLength - (verticalLineStrLength * 2); i++)
                 System.out.print(" ");
-            System.out.print(verticalLine);
+
+            if (repeat % 2 == 0)
+                System.out.print("0");
+            else
+                System.out.print("1");
+
             System.out.println();
         }
 
@@ -76,21 +86,52 @@ public class Scopes {
                 // value
                 double x = xMinusH + h;
 
+                // the gap between the vertical border and the circle's left edge
+                // space = (IL / 2) - x + gap
                 double spaceX = (innerLength / 2) - x + 2;
                 double circleInternalSpace = (x * 2) - 9;
 
+                // print the left side of the arc
                 for (int i = 1; i <= spaceX; i++)
                     System.out.print(" ");
                 System.out.print("0@@0");
 
+                // print the internal spacing
                 for (int i = 1; i <= circleInternalSpace; i++)
                     System.out.print(" ");
+                // print the right side of the arc
                 System.out.print("0@@0");
 
-            }
-            System.out.println();
+                // print the amount of space needed to fill the right portion of icon
+                for (int i = 1; i <= (innerLength - circleInternalSpace - 8 - spaceX); i++)
+                    System.out.print(" ");
 
+                int additionalSpace = 0;
+                switch (y) {
+                    case 14, 0:
+                        additionalSpace = 0;
+                        break;
+                    case 12, 7, 2:
+                        additionalSpace = 1;
+                        break;
+                    default:
+                        additionalSpace = 2;
+                }
+                for (int i = 1; i <= additionalSpace; i++)
+                    System.out.print(" ");
+            } else {
+                for (int i = 1; i <= innerLength; i++)
+                    System.out.print(" ");
+            }
+            // print right side of the vertical border
+            if (y % 2 == 0)
+                System.out.print("0");
+            else
+                System.out.print("1");
+
+            System.out.println();
         }
+
         int slopeHeight = 8;
         String lowerChars = "0";
         for (int y = 1; y <= slopeHeight; y++) {
@@ -113,6 +154,9 @@ public class Scopes {
                 System.out.print(" ");
             System.out.println(lowerChars);
         }
+
+        System.out.println("\n");
+
         System.out.println(
                 "                                 *@@@@%-..+%@@@@#=.-#@@@@%*...%@@@@@#-.=%@@@@@%.-#@@@@%:\n"
                         +
