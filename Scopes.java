@@ -53,8 +53,8 @@ public class Scopes {
                 System.out.print("1");
 
             // calulates the x coordinate of circle
-            double radius = verticalLineHeight / 2;
-            double h = radius - 9;
+            double radius = (verticalLineHeight / 2);
+            double h = radius - 2;
             double k = radius;
 
             // formula: (x-h)^2 = r^2 - (y-k)^2
@@ -71,28 +71,21 @@ public class Scopes {
                 }
 
                 // extend the x axis (because my font style is thin)
-                xMinusH *= 2.1;
+                xMinusH *= 1.8;
                 // obtain the x coordinate from by adding h to the square root of calculated
                 // value
                 double x = xMinusH + h;
 
-                double spaceX = (innerLength / 2) - x;
-                double circleInternalSpace = (x * 2) + 2;
+                double spaceX = (innerLength / 2) - x + 2;
+                double circleInternalSpace = (x * 2) - 9;
 
-                if (y == verticalLineHeight - 1 || y == 0) {
-                    for (int i = 1; i <= spaceX - 4; i++)
-                        System.out.print(" ");
-                    System.out.print("@@@@@@@");
-                } else {
-                    for (int i = 1; i <= spaceX; i++)
-                        System.out.print(" ");
-                    System.out.print("@@");
-                }
+                for (int i = 1; i <= spaceX; i++)
+                    System.out.print(" ");
+                System.out.print("0@@0");
 
                 for (int i = 1; i <= circleInternalSpace; i++)
                     System.out.print(" ");
-
-                System.out.print("@@");
+                System.out.print("0@@0");
 
             }
             System.out.println();
