@@ -1,3 +1,5 @@
+import java.lang.invoke.CallSite;
+
 public class Main {
     public static void main(String[] args) {
         engineer();
@@ -74,10 +76,11 @@ public class Main {
              * this part calculates the square root
              */
             // the x^2 coordinate
-            int xSqaured = (iconRadius * iconRadius) - ((y - 8) * (y - 8));
+            double squishY = y * 1;
+            double xSqaured = (iconRadius * iconRadius) - ((squishY - 8) * (squishY - 8));
             /** initial guess */
             double spaceX = xSqaured / 2;
-            double epsilon = 0.000001; // Precision threshold
+            double epsilon = 0.001; // Precision threshold
 
             if (xSqaured >= 0) {
                 // Iterate until the difference between guesses is small
@@ -99,16 +102,92 @@ public class Main {
             // print the border of left side of the circle
             System.out.print("@@");
 
-            for (int i = 1; i <= innerSpace; i++)
-                System.out.print(" ");
+            // this prints the necessarry spaces to fill the circle, before typing the
+            // border
+            switch (y) {
+                case 5:
+                    System.out.print("       =%*              @@");
+                    break;
+                case 6:
+                    System.out.print("       #@@@=*            @@");
+                    break;
+                case 7:
+                    System.out.print("       +@@@@@%           @@");
+                    break;
+                case 8:
+                    System.out.print("        -@@@@@%*           @@");
+                    break;
+                case 9:
+                    System.out.print("        #@%#@*           @@");
+                    break;
+                case 10:
+                    System.out.print("        +=..*@*          @@");
+                    break;
+                case 11:
+                    System.out.print("            .*@*        @@");
+                    break;
+                default:
+                    for (int i = 1; i <= innerSpace; i++)
+                        System.out.print(" ");
 
-            System.out.print("@@");
+                    System.out.print("@@");
+            }
 
-            double rightSpace = spaceX;
+            int rightSpace = 0;
+            switch (y) {
+                case 1:
+                    rightSpace = 15;
+                    break;
+                case 2:
+                    rightSpace = 9;
+                    break;
+                case 3:
+                    rightSpace = 6;
+                    break;
+                case 4:
+                    rightSpace = 5;
+                    break;
+                case 5:
+                    rightSpace = 4;
+                    break;
+                case 6:
+                    rightSpace = 3;
+                    break;
+                case 7:
+                    rightSpace = 3;
+                    break;
+                case 8:
+                    rightSpace = 2;
+                    break;
+                case 9:
+                    rightSpace = 3;
+                    break;
+                case 10:
+                    rightSpace = 3;
+                    break;
+                case 11:
+                    rightSpace = 4;
+                    break;
+                case 12:
+                    rightSpace = 5;
+                    break;
+                case 13:
+                    rightSpace = 6;
+                    break;
+                case 14:
+                    rightSpace = 9;
+                    break;
+                case 15:
+                    rightSpace = 15;
+                    break;
+            }
+
             for (int i = 1; i <= rightSpace; i++)
                 System.out.print(" ");
+
             System.out.println(verticalLine);
         }
+
         System.out.print("done");
 
     }
