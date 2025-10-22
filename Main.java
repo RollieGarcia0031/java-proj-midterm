@@ -188,6 +188,24 @@ public class Main {
             System.out.println(verticalLine);
         }
 
+        int slopeHeight = 8;
+        String lowerChars = "@";
+        for (int y = 1; y <= slopeHeight; y++) {
+            for (int i = 1; i <= marginLeft; i++)
+                System.out.print(" ");
+
+            // slope = (slopeHeight * 2) / innerLength;
+
+            int spaceX = y * innerLength / (slopeHeight * 2);
+            for (int i = 1; i <= spaceX; i++)
+                System.out.print(" ");
+            System.out.print(lowerChars);
+
+            double innerSpace = innerLength - (2 * spaceX);
+            for (int i = 1; i <= innerSpace; i++)
+                System.out.print(" ");
+            System.out.println(lowerChars);
+        }
         System.out.print("done");
 
     }
