@@ -2,23 +2,9 @@ import java.lang.invoke.CallSite;
 
 public class Main {
     public static void main(String[] args) {
-        engineer();
+        // engineer();
         System.out.print("\n\n\n\n");
-        // logo2();
-
-        // int number = 2;
-
-        // double guess = number / 2; // Initial guess
-        // double epsilon = 0.000001; // Precision threshold
-
-        // // Iterate until the difference between guesses is small
-        // while ((guess * guess - number) > epsilon || (number - guess * guess) >
-        // epsilon) {
-        // guess = (guess + number / guess) / 2;
-        // }
-
-        // System.out.println(guess);
-
+        logo2();
     }
 
     /**
@@ -30,11 +16,11 @@ public class Main {
         // length of the logo container
         int logoLength = 80 - 41;
         // the string that will be used as vertical border
-        String verticalLine = "I";
+        String verticalLine = "1";
         int verticalLineStrLength = 1; // string length/amount of char of verticalLine
         int verticalLineHeight = 21 - 6; // height of the verticalLine height
         // the string that will be used as top border
-        String topLine = "=";
+        String topLine = "10";
         // margin between the vertical border and circle inside logo
         int innerMarginX = 3;
         // the radius of the main circle in logo
@@ -45,7 +31,7 @@ public class Main {
         // top border
         for (int i = 1; i <= marginLeft; i++)
             System.out.print(" ");
-        for (int i = 1; i <= logoLength; i++)
+        for (int i = 1; i <= logoLength / 2; i++)
             System.out.print(topLine);
         System.out.println();
 
@@ -66,7 +52,10 @@ public class Main {
                 System.out.print(" ");
 
             // print the vertical border
-            System.out.print(verticalLine);
+            if (y % 2 == 0)
+                System.out.print(1);
+            else
+                System.out.print(0);
 
             // print the margin between the logo and the verical border
             for (int i = 1; i <= innerMarginX; i++)
@@ -93,7 +82,6 @@ public class Main {
             // END OF SQUARE ROOT
 
             // the ammount of horizontal space between edges of circle (dx)
-
             double innerSpace = innerLength - (spaceX * 2) - 9;
 
             for (double i = 0; i < spaceX; i++)
@@ -189,7 +177,7 @@ public class Main {
         }
 
         int slopeHeight = 8;
-        String lowerChars = "@";
+        String lowerChars = "0";
         for (int y = 1; y <= slopeHeight; y++) {
             for (int i = 1; i <= marginLeft; i++)
                 System.out.print(" ");
@@ -384,48 +372,26 @@ public class Main {
             System.out.print(" ");
         System.out.println("|");
 
-        // layer 17
-        for (int i = 1; i <= 22; i++)
-            System.out.print(" ");
-        for (int i = 1; i <= 9; i++)
-            System.out.print("@");
-        for (int i = 1; i <= 3; i++)
+        // layer 17,18
+        for (int repeat = 1; repeat <= 2; repeat++) {
+            for (int i = 1; i <= 18; i++)
+                System.out.print(" ");
+            for (int i = 1; i <= 12; i++)
+                System.out.print("@");
+            for (int i = 1; i <= 4; i++)
+                System.out.print(" ");
+            System.out.print("|");
+            for (int i = 1; i <= bottomLineLength; i++)
+                System.out.print(" ");
+            System.out.println("|");
+        }
+
+        // layer 19
+        for (int space = 1; space <= 34; space++)
             System.out.print(" ");
         System.out.print("|");
         for (int i = 1; i <= bottomLineLength; i++)
-            System.out.print(" ");
+            System.out.print("_");
         System.out.println("|");
     }
 }
-
-// ....... ...... ........ ....................................................
-// . ... . ..
-// ............................:.. ............................... ... .
-// ......... .
-// . .... ................#@@@@@*..@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@: . ... . ...
-// ..
-// ..... ................ *@@@@@@-.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= ... ....
-// ................... ..*@@@@@@-.@@@@@@@@@@@@@@@@@@@@@@@@@@@@%. .......... .
-// ..... .........:@@@@+@@@@@@@@@-.@@@@@@@@@@******************. ... ........ ..
-// .
-// .. ............@@@@@@@@@@@@@@@-.@@@@@@@@@# . . .. .............. .
-// . ............-@@@@@@@@@@@@-....@@@@@@@@@# ............. .. .
-// . ....... ......*@@@@@@@@-... ..@@@@@@@@@# ............ . ..
-// . .......... .@@@@@@@@.. .....@@@@@@@@@@###%%%%%%%%%%%%.. ............. .. .
-// .. .......+@@@@@@@@@@@: .....@@@@@@@@@@@@@@@@@@@@@@@@@:. ..................
-// ..
-// . ........ +@@@@@@@@@@@. ....@@@@@@@@@@@@@@@@@@@@@@@@@: . ..................
-// . .
-// ...........*@@@@@@@@@@@: ...@@@@@@@@@@@@@@@@@@@@@@@@@: .................. . .
-// ....... .......=@@@@@@@@. .. . .@@@@@@@@@# ............... ..................
-// .. .
-// ..... ..........@@@@@@@@%. @@@@@@@@@#. ...... .................. .
-// . ..... .-@@@@@@@@@@*. @@@@@@@@@# ... . .......... . .
-// .............:@@@@@@@@@@@@@@@*. @@@@@@@@@# .. ........... .
-// ..... . ......*@@@@@@@@@@@@@@-.@@@@@@@@@@%@@@@@%%@@%%%%@@@@@@= .......... .
-// ..... . ........:=....*@@@@@@@-.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@. ....... ..
-// ....... .........=@@@@@@-.@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=. ......... .
-// ... . . ... .@@@@@@@..%@@@@@@@@@@@@@@@@@@@@@@@@@@@@. . . ....... .
-// ......... .....-@%.................................. . ........ .. .
-// .............. . . ...................................... ....... ....... .
-// ..
