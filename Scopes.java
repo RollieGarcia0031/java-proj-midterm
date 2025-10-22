@@ -42,141 +42,62 @@ public class Scopes {
         // measurements for margins, and positioning of cursor will be based on the
         // general formula of the circle (derived from pythagorean thoerem)
         // which is also a function of x in terms of y
-        for (int y = 1; y <= verticalLineHeight; y++) {
-            // print the margins between the screen and logo
+        for (int y = verticalLineHeight; y >= 0; y--) {
+
             for (int i = 1; i <= marginLeft; i++)
                 System.out.print(" ");
 
-            // print the vertical border
-            // this prints the border by alternating 1s & 0s by relying in the y-coordinate
             if (y % 2 == 0)
-                System.out.print(1);
+                System.out.print("0");
             else
-                System.out.print(0);
+                System.out.print("1");
 
-            // print the margin between the logo and the verical border
-            for (int i = 1; i <= innerMarginX; i++)
-                System.out.print(" ");
+            // calulates the x coordinate of circle
+            double radius = verticalLineHeight / 2;
+            double h = radius - 9;
+            double k = radius;
 
-            /*
-             * this part calculates the square root
-             */
-            // the x^2 coordinate
-            double squishY = y * 1;
-            double xSqaured = (iconRadius * iconRadius) - ((squishY - 8) * (squishY - 8));
-            /** initial guess */
-            double spaceX = xSqaured / 2;
+            // formula: (x-h)^2 = r^2 - (y-k)^2
+            double xMinusHSquared = (radius * radius) - ((y - k) * (y - k));
+            double xMinusH = xMinusHSquared / 2; // initial guess
             double epsilon = 0.001; // Precision threshold
 
-            if (xSqaured >= 0) {
+            // check if the y coordinate is a valid coordiante of the circle
+            if (xMinusHSquared >= 0) {
                 // Iterate until the difference between guesses is small
-                while ((spaceX * spaceX - xSqaured) > epsilon || (xSqaured - spaceX * spaceX) > epsilon) {
-                    spaceX = (spaceX + xSqaured / spaceX) / 2;
+                while ((xMinusH * xMinusH - xMinusHSquared) > epsilon
+                        || (xMinusHSquared - xMinusH * xMinusH) > epsilon) {
+                    xMinusH = (xMinusH + xMinusHSquared / xMinusH) / 2;
                 }
-            }
-            spaceX -= 7;
-            spaceX = -spaceX;
-            // END OF SQUARE ROOT
 
-            // the ammount of horizontal space between edges of circle (dx)
-            double innerSpace = innerLength - (spaceX * 2) - 9;
+                // extend the x axis (because my font style is thin)
+                xMinusH *= 2.1;
+                // obtain the x coordinate from by adding h to the square root of calculated
+                // value
+                double x = xMinusH + h;
 
-            for (double i = 0; i < spaceX; i++)
-                System.out.print(" ");
+                double spaceX = (innerLength / 2) - x;
+                double circleInternalSpace = (x * 2) + 2;
 
-            // print the border of left side of the circle
-            System.out.print("@@");
-
-            // this prints the necessarry spaces to fill the circle, before typing the
-            // border
-            switch (y) {
-                case 5:
-                    System.out.print("       =%*              @@");
-                    break;
-                case 6:
-                    System.out.print("       #@@@=*            @@");
-                    break;
-                case 7:
-                    System.out.print("       +@@@@@%           @@");
-                    break;
-                case 8:
-                    System.out.print("        -@@@@@%*           @@");
-                    break;
-                case 9:
-                    System.out.print("        #@%#@*           @@");
-                    break;
-                case 10:
-                    System.out.print("        +=..*@*          @@");
-                    break;
-                case 11:
-                    System.out.print("            .*@*        @@");
-                    break;
-                default:
-                    for (int i = 1; i <= innerSpace; i++)
+                if (y == verticalLineHeight - 1 || y == 0) {
+                    for (int i = 1; i <= spaceX - 4; i++)
                         System.out.print(" ");
-
+                    System.out.print("@@@@@@@");
+                } else {
+                    for (int i = 1; i <= spaceX; i++)
+                        System.out.print(" ");
                     System.out.print("@@");
+                }
+
+                for (int i = 1; i <= circleInternalSpace; i++)
+                    System.out.print(" ");
+
+                System.out.print("@@");
+
             }
-
-            int rightSpace = 0;
-            switch (y) {
-                case 1:
-                    rightSpace = 15;
-                    break;
-                case 2:
-                    rightSpace = 9;
-                    break;
-                case 3:
-                    rightSpace = 6;
-                    break;
-                case 4:
-                    rightSpace = 5;
-                    break;
-                case 5:
-                    rightSpace = 4;
-                    break;
-                case 6:
-                    rightSpace = 3;
-                    break;
-                case 7:
-                    rightSpace = 3;
-                    break;
-                case 8:
-                    rightSpace = 2;
-                    break;
-                case 9:
-                    rightSpace = 3;
-                    break;
-                case 10:
-                    rightSpace = 3;
-                    break;
-                case 11:
-                    rightSpace = 4;
-                    break;
-                case 12:
-                    rightSpace = 5;
-                    break;
-                case 13:
-                    rightSpace = 6;
-                    break;
-                case 14:
-                    rightSpace = 9;
-                    break;
-                case 15:
-                    rightSpace = 15;
-                    break;
-            }
-
-            for (int i = 1; i <= rightSpace; i++)
-                System.out.print(" ");
-
-            if (y % 2 == 0)
-                System.out.println(0);
-            else
-                System.out.println(1);
+            System.out.println();
 
         }
-
         int slopeHeight = 8;
         String lowerChars = "0";
         for (int y = 1; y <= slopeHeight; y++) {
