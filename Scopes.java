@@ -6,8 +6,10 @@ public class Scopes {
         int logoLength = 80 - 41;
         // the string that will be used as vertical border
         String verticalLine = "1";
-        int verticalLineStrLength = 1; // string length/amount of char of verticalLine
-        int verticalLineHeight = 21 - 6; // height of the verticalLine height
+        // string length/amount of char of verticalLine, useful for calculating inner
+        // lengths
+        int verticalLineStrLength = 1;
+        int verticalLineHeight = 21 - 6; // height of the vertical line height
         // the string that will be used as top border
         String topLine = "10";
         // margin between the vertical border and circle inside logo
@@ -25,6 +27,7 @@ public class Scopes {
         System.out.println();
 
         // blank layer
+        // this is the blank part of the icon
         for (int repeat = 1; repeat <= 2; repeat++) {
             for (int i = 1; i <= marginLeft; i++)
                 System.out.print(" ");
@@ -35,12 +38,17 @@ public class Scopes {
             System.out.println();
         }
 
+        // This part of the code is where the circle of the icon is generated the
+        // measurements for margins, and positioning of cursor will be based on the
+        // general formula of the circle (derived from pythagorean thoerem)
+        // which is also a function of x in terms of y
         for (int y = 1; y <= verticalLineHeight; y++) {
             // print the margins between the screen and logo
             for (int i = 1; i <= marginLeft; i++)
                 System.out.print(" ");
 
             // print the vertical border
+            // this prints the border by alternating 1s & 0s by relying in the y-coordinate
             if (y % 2 == 0)
                 System.out.print(1);
             else
