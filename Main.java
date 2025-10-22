@@ -27,13 +27,13 @@ public class Main {
         // the string that will be used as vertical border
         String verticalLine = "I";
         int verticalLineStrLength = 1; // string length/amount of char of verticalLine
-        int verticalLineHeight = 21 - 7; // height of the verticalLine height
+        int verticalLineHeight = 21 - 6; // height of the verticalLine height
         // the string that will be used as top border
         String topLine = "=";
         // margin between the vertical border and circle inside logo
         int innerMarginX = 3;
         // the radius of the main circle in logo
-        int iconRadius = 5;
+        int iconRadius = 6;
 
         // top border
         for (int i = 1; i <= marginLeft; i++)
@@ -68,25 +68,39 @@ public class Main {
             /*
              * this part calculates the square root
              */
-            // the x coordinate
-            int xSqaured = (iconRadius * iconRadius) - ((y - 7) * (y - 7));
+            // the x^2 coordinate
+            int xSqaured = (iconRadius * iconRadius) - ((y - 8) * (y - 8));
             double spaceX = xSqaured / 2; // Initial guess
             double epsilon = 0.000001; // Precision threshold
 
             if (xSqaured >= 0) {
-
                 // Iterate until the difference between guesses is small
                 while ((spaceX * spaceX - xSqaured) > epsilon || (xSqaured - spaceX * spaceX) > epsilon) {
                     spaceX = (spaceX + xSqaured / spaceX) / 2;
                 }
             }
-            spaceX += 2;
+            spaceX -= 8;
+
+            spaceX = -spaceX;
             // END OF SQUARE ROOT
 
             for (int i = 1; i <= spaceX; i++)
                 System.out.print(" ");
 
-            System.out.print("@");
+            // print the border of left side of the circle
+            System.out.print("@@");
+
+            int innerLength = logoLength - (verticalLineStrLength * 2);
+
+            // System.out.print(spaceX);
+            // spaceX = -spaceX;
+            // spaceX -= 8;
+            double innerSpace = innerLength - (spaceX * 2);
+            for (int i = 1; i <= innerSpace; i++)
+                System.out.print(" ");
+
+            System.out.print("@@");
+
             System.out.println(verticalLine);
         }
         System.out.print("done");
