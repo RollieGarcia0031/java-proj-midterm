@@ -155,9 +155,9 @@ public class Engineering {
         // layer 16
         for (int i = 1; i <= 17; i++)
             System.out.print(" ");
-        for (int i = 1; i <= 13; i++)
+        for (int i = 1; i <= 15; i++)
             System.out.print("@");
-        for (int i = 1; i <= 4; i++)
+        for (int i = 1; i <= 2; i++)
             System.out.print(" ");
         System.out.print("|");
         for (int i = 1; i <= bottomLineLength; i++)
@@ -168,9 +168,9 @@ public class Engineering {
         for (int repeat = 1; repeat <= 2; repeat++) {
             for (int i = 1; i <= 18; i++)
                 System.out.print(" ");
-            for (int i = 1; i <= 12; i++)
+            for (int i = 1; i <= 14; i++)
                 System.out.print("@");
-            for (int i = 1; i <= 4; i++)
+            for (int i = 1; i <= 2; i++)
                 System.out.print(" ");
             System.out.print("|");
             for (int i = 1; i <= bottomLineLength; i++)
@@ -179,7 +179,11 @@ public class Engineering {
         }
 
         // layer 19
-        for (int space = 1; space <= 34; space++)
+        for (int space = 1; space <= 22; space++)
+            System.out.print(" ");
+        for (int i = 1; i <= 10; i++)
+            System.out.print("@");
+        for (int i = 1; i <= 2; i++)
             System.out.print(" ");
         System.out.print("|");
         for (int i = 1; i <= bottomLineLength; i++)
