@@ -22,8 +22,11 @@ public class Scopes {
         // top border
         for (int i = 1; i <= marginLeft; i++)
             System.out.print(" ");
-        for (int i = 1; i <= logoLength / 2; i++)
-            System.out.print(topLine);
+        for (int i = 1; i <= logoLength; i++)
+            if (i % 2 == 0)
+                System.out.print("0");
+            else
+                System.out.print("1");
         System.out.println();
 
         // blank layer
