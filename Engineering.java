@@ -85,9 +85,12 @@ public class Engineering {
             System.out.print("@");
         System.out.print("       |");
         for (int i = 1; i <= letterBaseWidth; i++)
+            // print the spaces based on the desired width of base
             System.out.print(" ");
         System.out.print("|");
         for (int i = 1; i <= middleLetterLength - letterBaseWidth; i++)
+            // print the remaining bottom lines of letter, which length is equal to the
+            // difference between base and actual length of line in the middle of letter E
             System.out.print("_");
         System.out.println();
 
@@ -103,6 +106,7 @@ public class Engineering {
 
         // layer 10,11,12
         for (int repeat = 1; repeat <= 3; repeat++) {
+            // for middle part of gear and letter E, print both 3 times to make it thicker
             for (int i = 1; i <= 14; i++)
                 System.out.print(" ");
             for (int i = 1; i <= 11; i++)

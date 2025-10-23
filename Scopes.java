@@ -78,7 +78,7 @@ public class Scopes {
                 System.out.print("1");
 
             // 3. calulate the x coordinate of circle based on the
-            double radius = (verticalLineHeight / 2);
+            double radius = verticalLineHeight / 2;
             // h & k are the offset values in the x & y axis
             double h = radius - 2;
             double k = radius;
