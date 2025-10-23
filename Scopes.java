@@ -3,13 +3,13 @@ public class Scopes {
         // the space between logo and left side of screen
         int marginLeft = 40;
         // length of the logo container
-        int logoLength = 80 - 41;
+        int logoLength = 39;
         // the string that will be used as vertical border
         String verticalLine = "1";
         // string length/amount of char of verticalLine, useful for calculating inner
         // lengths
         int verticalLineStrLength = 1;
-        int verticalLineHeight = 21 - 6; // height of the vertical line height
+        int verticalLineHeight = 15; // height of the vertical line height
         // the string that will be used as top border
         String topLine = "10";
         // margin between the vertical border and circle inside logo
