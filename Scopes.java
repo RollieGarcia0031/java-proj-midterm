@@ -70,7 +70,7 @@ public class Scopes {
             // formula: (x-h)^2 = r^2 - (y-k)^2
             double xMinusHSquared = (radius * radius) - ((y - k) * (y - k));
             double xMinusH = xMinusHSquared / 2; // initial guess
-            double epsilon = 0.001; // Precision threshold
+            double epsilon = 0.0001; // Precision threshold
 
             // check if the y coordinate is a valid coordiante of the circle
             if (xMinusHSquared >= 0) {
@@ -97,8 +97,35 @@ public class Scopes {
                 System.out.print("0@@0");
 
                 // print the internal spacing
-                for (int i = 1; i <= circleInternalSpace; i++)
-                    System.out.print(" ");
+                switch (y) {
+                    case 10:
+                        System.out.print("        *              ");
+                        break;
+                    case 9:
+                        System.out.print("         =%*             ");
+                        break;
+                    case 8:
+                        System.out.print("          #@@@=          ");
+                        break;
+                    case 7:
+                        System.out.print("          +@@@@@          ");
+                        break;
+                    case 6:
+                        System.out.print("          -%@@@@%*       ");
+                        break;
+                    case 5:
+                        System.out.print("           #@%#@*        ");
+                        break;
+                    case 4:
+                        System.out.print("          +=  *@*      ");
+                        break;
+                    case 3:
+                        System.out.print("               *@*   ");
+                        break;
+                    default:
+                        for (int i = 1; i <= circleInternalSpace; i++)
+                            System.out.print(" ");
+                }
                 // print the right side of the arc
                 System.out.print("0@@0");
 
