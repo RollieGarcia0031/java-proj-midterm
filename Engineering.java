@@ -1,23 +1,33 @@
 public class Engineering {
     public static void main(String[] args) {
 
+        // logic: manually use for loops to print the exact ammount repetition of
+        // characters in each of layers
+
         // layer 1
         for (int i = 1; i <= 34; i++)
+            // print the spaces
             System.out.print(" ");
         for (int i = 1; i <= 30; i++)
+            // print the top border
             System.out.print("_");
 
         System.out.println();
 
         // layer 2
         for (int i = 0; i <= 24; i++)
+            // print the spaces
             System.out.print(" ");
         for (int i = 1; i <= 7; i++)
+            // print the characters of the gear
             System.out.print("@");
+        // print the spaces between letter E and gears
         System.out.print("  |");
         for (int i = 1; i <= 28; i++)
+            // print the spaces to fill the letter E
             System.out.print(' ');
 
+        // print the right border of the logo
         System.out.println("|");
 
         // layer 3,4
@@ -65,7 +75,8 @@ public class Engineering {
             System.out.println("|");
         }
 
-        int middleLetterLength = 61 - 36;
+        // this is the length of line inside the letter E
+        int middleLetterLength = 25;
 
         // layer 8
         for (int i = 1; i <= 19; i++)
