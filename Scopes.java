@@ -97,6 +97,7 @@ public class Scopes {
             if (xMinusHSquared >= 0) {
                 // Iterate until the difference between guessed number & target number is as
                 // small as the defined epsilon
+                // this equation in a loop is known as manual square root approximation
                 while ((xMinusH * xMinusH - xMinusHSquared) > epsilon
                         || (xMinusHSquared - xMinusH * xMinusH) > epsilon) {
                     // use the Newton's Method
